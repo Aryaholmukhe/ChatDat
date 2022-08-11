@@ -3,7 +3,7 @@
 
 <head>
     <title>Socket.IO chat</title>
-    
+
     <style>
         body {
             margin: 0;
@@ -63,22 +63,20 @@
 </head>
 
 <body>
-   
-   
+
+
     <div id="messages"></div>
     <form id="form" action="">
         <input id="input" autocomplete="off" /><button>Send</button>
     </form>
-    
-    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.0/qs.min.js"
+        integrity="sha512-/l6vieC+YxaZywUhmqs++8uF9DeMvJE61ua5g+UK0TuHZ4TkTgB1Gm1n0NiA86uEOM9JJ6JUwyR0hboKO0fCng=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Connects  Socket.io to client-side server -->
     <script src="/socket.io/socket.io.js"></script>
-
-    <script >
-     
-    </script>
     <script src="main.js"></script>
-    
+
 </body>
 
 </html>

@@ -4,17 +4,28 @@ var socket = io();
 var form = document.getElementById('form');
 var input = document.getElementById('input');
 
+// Search Username and Room from the URL
+const { username, room } = Qs.parse(location.search, {
+    ignoreQueryPrefix: true
+  });
+  console.log(username, room)
+
 form.addEventListener('submit', function (e) {
-    e.preventDefault(); // So that page doesn't refresh on submitting the form
+    e.preventDefault(); // Stops page from refreshing
     if (input.value) { // if exists
         socket.emit('chat message', input.value); //
         input.value = ''; //Empty chat
     }
 });
+  
+  // Join chatroom
+  socket.emit('joinRoom', {username, room})
+
 socket.on('chat message', function (msg) {
     var newMsg = document.createElement('div');
     newMsg.classList.add("msg")
-    newMsg.innerHTML = '<p class= "txt">' + msg + '</p>';
+    newMsg.innerHTML = '<p class= "txt">' + msg.username+ " " + msg.text + '</p>';
+    console.log(newMsg);
     messages.appendChild(newMsg);
     window.scrollTo(0, document.body.scrollHeight);
 });

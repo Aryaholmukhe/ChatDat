@@ -8,6 +8,8 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 const path = require("path");
+const formatMessage = require("./utils/formatMessage");
+const {joinUsers, getUser, leftUser} = require("./utils/users");
 
 app.set('view engine', 'ejs')
 
@@ -16,34 +18,35 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(bodyParser.json());
 
-let user= [];
 
 // We define a route handler '/' that gets called when we hit our website home.
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html'); //sends the html from defined file
 });
-// app.get('/login', (req, res) => {
-//   res.render("login");
-// });
 
-// app.post('/login', (req, res) => {
-//   user.push(req.body.user);
-//   console.log(user);
-//   res.redirect("/");
-// })
 
 io.on('connection', (socket) => {
-  
+  socket.on('joinRoom', ({username, room}) =>{
+
+  const user = joinUsers(socket.id, username, room);
+
+  socket.join(user.room) 
+
+  socket.broadcast.to(user.room).emit('chat message', formatMessage("", `${user.username} has joined`))
+  })
   socket.on('chat message', (msg) => {
-    io.emit('chat message', msg);
+    const user = getUser(socket.id);
+
+    io.emit('chat message', formatMessage(user.username, msg));
   });
   
-  socket.broadcast.emit('chat message', "a new user has joined")
 
   socket.on('disconnect', () => {
-    io.emit("A user left the chat");
+    const user = leftUser(socket.id);
+    if(user){
+      io.to(user.room).emit('chat message', formatMessage("",  `${user.username} has left`));
+    }
   });
-
 });
  
 
