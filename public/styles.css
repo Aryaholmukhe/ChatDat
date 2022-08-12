@@ -1,3 +1,5 @@
+/* this is a mess, look at your own risk */
+
 @import url('https://fonts.googleapis.com/css2?family=DynaPuff&family=Poppins&display=swap');
 
 body {
@@ -175,9 +177,6 @@ label{
     font-size: 19px;
     text-indent: 5%;
 }
-
-
-
 
 .username{
     font-size: 12px;

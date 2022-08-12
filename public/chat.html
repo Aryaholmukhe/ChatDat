@@ -10,21 +10,25 @@
 
 <body>
 
-<div class="chatbox">
-    <div id="messages">
-        <span class="username">System</span> <p class="chat-msg">Welcome!!!</p>
+    <div class="chatbox">
+        <div id="messages">
+            <span class="username">System</span> <p class="chat-msg">Welcome!!!</p>
+        </div>
+        <form id="chat-form" action="">
+            <input id="input" autocomplete="off" placeholder="Enter message here..." /><button>Send</button>
+        </form>
     </div>
-    <form id="chat-form" action="">
-        <input id="input" autocomplete="off" placeholder="Enter message here..." /><button>Send</button>
-    </form>
-</div>
     
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.0/qs.min.js"
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.11.0/qs.min.js"
         integrity="sha512-/l6vieC+YxaZywUhmqs++8uF9DeMvJE61ua5g+UK0TuHZ4TkTgB1Gm1n0NiA86uEOM9JJ6JUwyR0hboKO0fCng=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+
     <!-- Connects  Socket.io to client-side server -->
     <script src="/socket.io/socket.io.js"></script>
+    <!-- adds js here -->
     <script src="main.js"></script>
 
 </body>
