@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff&family=Poppins&display=swap');
+
+body {
+    box-sizing: border-box;
+	margin: 0;
+	padding: 0;	
+	font-family: Roboto, sans-serif;
+    background-color: #1C0A00;
+    font-family: 'DynaPuff', cursive;
+}
+/* Login styles */
+
+.join-container{
+    height: 520px;
+    width: 30%;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+
+/* circles */
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        #603601,
+        #CC9544
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:nth-child(2){
+    background: linear-gradient(
+        #CEAB93,
+        #AD8B73
+    );
+    left: -50px;
+    bottom: 80px;
+    height: 80px;
+    width: 80px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #B7CADB,
+        #826F66
+    );
+    right: -70px;
+    bottom: -80px;
+}
+
+.join-container *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+.join-header *{
+    font-family: 'DynaPuff', cursive;
+    text-align: center;
+}
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.formInput{
+    display: block;
+    height: 70px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 300;
+    text-indent: 10px;
+}
+::placeholder{
+    color: #ffffff;
+}
+.option{
+    background-color: #B7CADB;
+    color: #1C0A00;
+}
+
+.join-btn{
+    margin-top: 90px;
+    width: 100%;
+    background-color: #1c0a00c4;
+    padding: 15px 0;
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 500px){
+    .join-container{
+        height: 520px;
+        width: 80%;
+        position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 60%;
+    }
+}
+
+
+/* Chat styles */
+
+
+#chat-form {
+    background: rgba(0, 0, 0, 0.15);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    height: 4rem;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+}
+
+#input {
+    border: none;
+    padding: 0 1rem;
+    flex-grow: 1;
+    background-color: #b7cadb17;
+    font-size: 19px;
+}
+
+#input:focus {
+    outline: none;
+    background-color: #b7cadb3a;
+}
+
+#chat-form>button {
+    background: #B7CADB;
+    border: none;
+    padding: 0 1rem;
+    width: 20%;
+    outline: none;
+    font-size: 19px;
+}
+
+#messages {
+    list-style-type: none;
+    margin: 2rem;
+    padding: 5%;
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 35px 35px;
+    color: #fff;
+    font-size: 19px;
+    text-indent: 5%;
+}
+
+
+
+
+.username{
+    font-size: 12px;
+    text-decoration: underline;
+    color: #AD8B73;
+    padding: 0;
+    margin-bottom: 0;
+
+}
+.chat-msg{
+    margin-top: 0;
+    font-family: 'Poppins',sans-serif;
+}

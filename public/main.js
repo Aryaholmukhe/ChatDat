@@ -1,9 +1,8 @@
 var socket = io();
 // var name = '<%- JSON.stringify(username) %>'; //cuz page is just a sting when rendered so need to stringify and parse again later
 
-var form = document.getElementById('form');
+var form = document.getElementById('chat-form');
 var input = document.getElementById('input');
-
 // Search Username and Room from the URL
 const { username, room } = Qs.parse(location.search, {
     ignoreQueryPrefix: true
@@ -23,8 +22,7 @@ form.addEventListener('submit', function (e) {
 
 socket.on('chat message', function (msg) {
     var newMsg = document.createElement('div');
-    newMsg.classList.add("msg")
-    newMsg.innerHTML = '<p class= "txt">' + msg.username+ " " + msg.text + '</p>';
+    newMsg.innerHTML = `<span class="username">${msg.username}</span> <p class="chat-msg"> ${msg.text} </p>`;
     console.log(newMsg);
     messages.appendChild(newMsg);
     window.scrollTo(0, document.body.scrollHeight);
