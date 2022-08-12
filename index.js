@@ -10,8 +10,6 @@ const path = require("path");
 const formatMessage = require("./utils/formatMessage");
 const { joinUsers, getUser, leftUser } = require("./utils/users");
 
-app.set('view engine', 'ejs')
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));  //lets u use static files
 
