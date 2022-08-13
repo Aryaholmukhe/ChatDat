@@ -76,7 +76,7 @@ body {
     outline: none;
     border: none;
 }
-.join-header *{
+.join-header {
     font-family: 'DynaPuff', cursive;
     text-align: center;
 }
